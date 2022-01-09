@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/Users/davidcolton/.pyenv/versions/3.10.0/bin/python",
+    "python.formatting.provider": "black",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

@@ -1,5 +1,5 @@
 import pytest
-from day_01 import Floor
+from day_01_2015 import Floor
 
 
 @pytest.mark.parametrize(
