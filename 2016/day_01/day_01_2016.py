@@ -14,8 +14,18 @@ class StreetGrid:
     #   distance: The distance to travel in the
     Instruction = namedtuple("Instruction", ["direction", "distance"])
 
+    # The CompassPoint named tuple is used to allow easy access to the
+    # values required to move according to each instruction.
+    # It contains three items:
+    #   x_mul: The number of blocks to move in the x direction +1 east, -1 west
+    #   y_mul: The number of blocks to move in the y direction +1 north, -1 south
+    #   new_direction: After folling the Instruction the direction you'll be facing
     CompassPoint = namedtuple("CompasPoint", ["x_mul", "y_mul", "new_direction"])
 
+    # The compass dictionary ditates how each Instruction is processed.
+    # The compass has 4 keys N, E, S and W. This is the direction you are facing.
+    # The value of each compass key is itself a dictionary with L & R keys.
+    # The value of each L & R key is a Compass point that allow you travel through the grid.
     compass = {
         "N": {
             "L": CompassPoint(-1, 0, "W"),
@@ -72,23 +82,43 @@ class StreetGrid:
         """
         facing = self.__facing
         position = self.__grid_position
+
+        # An empty set to hold the grid positions visited
         visited = set()
+
+        # For each instruction
         for ins in self.__instructions:
+
+            # The grid locations visited in the execution of this instruction
             this_path = set()
+
+            # Get the details of how this instructions move are to be executed
             move = self.compass[facing][ins.direction]
+
+            # For each single step in the instruction
             steps = range(ins.distance)
             for _ in steps:
+                # Get the next position
                 position = [
                     position[0] + move.x_mul * 1,
                     position[1] + move.y_mul * 1,
                 ]
+
+                # And add it to the path
                 this_path.add(tuple(position))
+
+            # After all steps you are now facing
             facing = move.new_direction
 
+            # Check if this path contains a grid position already visited
             if visited_twice and visited.intersection(this_path):
+
+                # If so return the distance to this position
                 position = visited.intersection(this_path).pop()
                 return abs(position[0]) + abs(position[1])
             else:
+
+                # Other add the grid position in the path to the visited set
                 visited = visited | this_path
 
         return abs(position[0]) + abs(position[1])
@@ -105,5 +135,7 @@ if __name__ == "__main__":
     # Create an instance of the StreetGris Class
     s = StreetGrid(data)
 
-    print(f"PART 01: {s.shortest_path()}")
-    print(f"PART 02: {s.shortest_path(visited_twice=True)}")
+    print(f"PART 01: Easter Bunny HQ is {s.shortest_path()} blocks away.")
+    print(
+        f"PART 02: The first location you visit twice is {s.shortest_path(visited_twice=True)} blocks away."
+    )
