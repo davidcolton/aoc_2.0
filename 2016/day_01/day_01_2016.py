@@ -69,7 +69,7 @@ class StreetGrid:
 
         The naive way follows all instructions and the calculates the Manhatten Distance.
 
-        The alternative way, when `visited_twice=True` calculate the distance from the
+        The alternative way, when `visited_twice=True` calculates the distance from the
         starting point to the first block, grid, position visited twice
 
         Args:
@@ -114,8 +114,8 @@ class StreetGrid:
             if visited_twice and visited.intersection(this_path):
 
                 # If so return the distance to this position
-                position = visited.intersection(this_path).pop()
-                return abs(position[0]) + abs(position[1])
+                twice_visited_position = visited.intersection(this_path).pop()
+                return abs(twice_visited_position[0]) + abs(twice_visited_position[1])
             else:
 
                 # Other add the grid position in the path to the visited set

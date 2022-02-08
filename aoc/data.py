@@ -27,3 +27,31 @@ def comma_separated_strings_to_list(string: str) -> list:
     """
 
     return [s.strip() for s in string.split(",")]
+
+
+def line_separated_strings_to_list_of_ints(string: str) -> list:
+    """Takes a line separated sequence of strings and returns a list of the strings
+
+    Args:
+        string (str): A line separated string e.g. "+1,
+        -2,
+        +3"
+
+    Returns:
+        list: A list of ints e.g. [1, 2, 3]
+    """
+
+    return [int(s.strip()) for s in string.strip().split("\n")]
+
+
+def number_to_list_of_ints(num: int) -> list:
+    """Takes a number and returns a list of integers
+
+    Args:
+        num (int): A number e.g. 12345
+
+    Returns:
+        list: A list of ints e.g. [1, 2, 3, 4, 5]
+    """
+
+    return [int(s) for s in str(num).strip()]
