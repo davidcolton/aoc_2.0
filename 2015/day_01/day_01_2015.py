@@ -1,8 +1,6 @@
 from collections import Counter
 import aoc.data as d
 
-input = "day_01.txt"
-
 
 class Floor:
     def __init__(self, input: str):
@@ -59,6 +57,9 @@ class Floor:
 
 
 if __name__ == "__main__":
+
+    input = "day_01.txt"
+
     # Simple import
     # Single line of data imported as a string
     raw_data = d.read_data(input)

@@ -29,6 +29,19 @@ def comma_separated_strings_to_list(string: str) -> list:
     return [s.strip() for s in string.split(",")]
 
 
+def line_separated_strings_to_list(string: str) -> list:
+    """Takes a line separated sequence of strings and returns a list of the strings
+
+    Args:
+        string (str): A line separated string e.g. "a\nb\nc"
+
+    Returns:
+        list: A list of strings e.g. ["a", "b", "c"]
+    """
+
+    return [s.strip() for s in string.split("\n")]
+
+
 def line_separated_strings_to_list_of_ints(string: str) -> list:
     """Takes a line separated sequence of strings and returns a list of the strings
 
@@ -55,3 +68,18 @@ def number_to_list_of_ints(num: int) -> list:
     """
 
     return [int(s) for s in str(num).strip()]
+
+
+def split_string_of_ints_by_given_char(string: str, sep: str) -> list:
+    """Takes a character separated list and the separator and
+    returns a list of integers
+
+    Args:
+        string (str): A list of separated integers e.g. "1\t2\t3"
+        sep" (str): The string separator e.g. "\t"
+
+    Returns:
+        list: A list of ints e.g. [1, 2, 3]
+    """
+
+    return [int(s) for s in string.split(sep)]
