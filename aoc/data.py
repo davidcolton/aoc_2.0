@@ -88,6 +88,20 @@ def number_to_list_of_ints(num: int) -> list:
     return [int(s) for s in str(num).strip()]
 
 
+def lines_of_numbers_to_lists_of_ints(data: list) -> list:
+    """Takes multiple lines of numbers and returns a
+    list of lists of integers
+
+    Args:
+        num (int): A number e.g. 123\n456\n789
+
+    Returns:
+        list: A list of ints e.g. [[1, 2, 3], [4, 5, 6] [7, 8, 9]]
+    """
+
+    return [list(map(int, n)) for n in data.split("\n")]
+
+
 def split_string_of_ints_by_given_char(string: str, sep: str) -> list:
     """Takes a character separated list and the separator and
     returns a list of integers
@@ -100,4 +114,4 @@ def split_string_of_ints_by_given_char(string: str, sep: str) -> list:
         list: A list of ints e.g. [1, 2, 3]
     """
 
-    return [int(s) for s in string.split(sep)]
+    return [int(s.strip()) for s in string.split(sep)]
