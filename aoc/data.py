@@ -34,6 +34,26 @@ def read_lines_of_data(file_path: str) -> str:
     return raw_data
 
 
+def read_blocks_of_data(file_path: str) -> str:
+    """Read in the data file as a string.
+    No post procession or any formatting applied.
+    Further preparatin of the data for downstream logic is handled separately.
+
+    In this case a block is deliniated by a blank line or, in a practicle sense '\n\n'
+
+    Args:
+        file_path (str): The path to the data file to be imported.
+
+    Returns:
+        str: The whole datafile with each block returned as an element of a list
+    """
+
+    with open(file_path, "r") as f:
+        raw_data = f.read().split("\n\n")
+
+    return raw_data
+
+
 def comma_separated_strings_to_list(string: str) -> list:
     """Takes a comma separated sequence of strings and returns a list of the strings
 
