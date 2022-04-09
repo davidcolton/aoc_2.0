@@ -135,3 +135,18 @@ def split_string_of_ints_by_given_char(string: str, sep: str) -> list:
     """
 
     return [int(s.strip()) for s in string.split(sep)]
+
+
+def split_string_of_strings_by_given_char(string: str, sep: str) -> list:
+    """Takes a character separated list and the separator and
+    returns a list of integers
+
+    Args:
+        string (str): A list of separated integers e.g. "a-2-b"
+        sep" (str): The string separator e.g. "-"
+
+    Returns:
+        list: A list of strings e.g. ['a', '2', 'b']
+    """
+
+    return [s.strip() for s in string.split(sep)]
