@@ -16,7 +16,7 @@ def read_data(file_path: str) -> str:
     return raw_data
 
 
-def read_lines_of_data(file_path: str) -> str:
+def read_lines_of_data(file_path: str) -> list:
     """Read in the data file as a string.
     No post procession or any formatting applied.
     Further preparatin of the data for downstream logic is handled separately.
