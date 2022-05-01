@@ -18,8 +18,8 @@ def read_data(file_path: str) -> str:
 
 def read_lines_of_data(file_path: str) -> list:
     """Read in the data file as a string.
-    No post procession or any formatting applied.
-    Further preparatin of the data for downstream logic is handled separately.
+    Split on newline character
+    Returns list of lines
 
     Args:
         file_path (str): The path to the data file to be imported.
