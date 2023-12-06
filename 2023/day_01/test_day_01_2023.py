@@ -1,5 +1,5 @@
 import pytest
-from day_01_2022 import calibrate_values, find_numbers
+from day_01_2023 import calibrate_values, find_numbers
 
 
 @pytest.mark.parametrize(

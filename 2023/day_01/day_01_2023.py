@@ -40,7 +40,6 @@ def find_numbers(input):
             digits_to_sum.append((match.start(), numbers[num]))
 
     od = sorted(digits_to_sum, key=lambda x: x[0])
-    print(digits_to_sum, input, od[0], od[-1])
 
     return int(od[0][1] + od[-1][1])
 
